@@ -1,0 +1,19 @@
+{
+  "networkMode": "bridge",
+  "containerDefinitions": [
+    {
+      "memory": 200,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true,
+      "name": "ecs-nginx-proxy",
+      "image": "codesuki/ecs-nginx-proxy:latest"
+    }
+  ],
+  "family": "ecs-nginx-proxy"
+}
