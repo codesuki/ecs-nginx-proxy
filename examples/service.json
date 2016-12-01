@@ -1,0 +1,7 @@
+{
+    "cluster": "ecs-nginx-proxy-cluster",
+    "serviceName": "ecs-nginx-proxy",
+    "taskDefinition": "ecs-nginx-proxy",
+    "desiredCount": 1,
+    "role": "ecsServiceRole"
+}

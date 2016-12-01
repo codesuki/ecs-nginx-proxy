@@ -1,0 +1,24 @@
+{
+  "networkMode": "bridge",
+  "containerDefinitions": [
+    {
+      "memory": 100,
+      "portMappings": [
+        {
+          "containerPort": 80,
+          "protocol": "tcp"
+        }
+      ],
+      "environment": [
+        {
+          "name": "VIRTUAL_HOST",
+          "value": "sample.domain.com"
+        }
+      ],
+      "essential": true,
+      "name": "sample-container",
+      "image": "nginx:latest"
+    }
+  ],
+  "family": "sample-task"
+}

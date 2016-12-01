@@ -1,0 +1,9 @@
+sudo: required
+
+language: generic
+
+services:
+- docker
+
+script:
+- docker build -t ecs-nginx-proxy:latest .
