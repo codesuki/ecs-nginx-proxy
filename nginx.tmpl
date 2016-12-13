@@ -30,7 +30,13 @@ server {
         server_name _; # This is just an invalid value which will never trigger on a real hostname.
         listen 80;
         access_log /var/log/nginx/access.log vhost;
-        return 503;
+        location = / {
+                return 200 'nginx is alive';
+                add_header Content-Type text/plain;
+        }
+        location / {
+                return 503;
+        }
 }
 
 {{ range $index, $value := . }}
