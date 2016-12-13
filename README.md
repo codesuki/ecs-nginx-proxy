@@ -7,6 +7,9 @@ ecs-nginx-proxy lets you run a nginx reverse proxy in an AWS ECS cluster. <br/>
 Uses [ecs-gen](https://github.com/codesuki/ecs-gen) to automatically make containers accessible by subdomain as they are started. <br/>
 My use case is using a wildcard domain to make per branch test environments accessible by branch.domain.com. Heavily inspired by [nginx-proxy](https://github.com/jwilder/nginx-proxy).
 
+## Security notice
+Currently I am only using this for a development cluster in a private network. I advise against using this in a production environment. If you want to do this consider using [ecs-gen](https://github.com/codesuki/ecs-gen) to create your own nginx config + container setup which is as secure as you need it to be.
+
 ## Sample use case
 You want to spin up development environments on AWS ECS for each pull request on your project.
 How do you make this easy to use? Do you look up the instance IP and connect directly? <br/>
@@ -73,5 +76,5 @@ aws ecs create-service --cluster <NAME> --service-name sample-service --task-def
 ```
 
 ## TODO
-* Support SSL connections
+* Support SSL connections (for now you can do SSL termination at the ALB)
 * Support path based routing (e.g. domain.com/service)
