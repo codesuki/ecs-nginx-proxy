@@ -2,6 +2,7 @@
 [![License](http://img.shields.io/badge/license-MIT-red.svg?style=flat)](./LICENSE)
 [![Build Status](http://img.shields.io/travis/codesuki/ecs-nginx-proxy.svg?style=flat)](https://travis-ci.org/codesuki/ecs-nginx-proxy)
 [![nginx latest](https://img.shields.io/badge/nginx-latest-brightgreen.svg?style=flat)](https://hub.docker.com/_/nginx/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/codesuki/ecs-nginx-proxy.svg)](https://hub.docker.com/r/codesuki/ecs-nginx-proxy/)
 
 ecs-nginx-proxy lets you run a nginx reverse proxy in an AWS ECS cluster. <br/>
 Uses [ecs-gen](https://github.com/codesuki/ecs-gen) to automatically make containers accessible by subdomain as they are started. <br/>
