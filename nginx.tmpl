@@ -39,16 +39,19 @@ server {
         }
 }
 
-{{ range $index, $value := . }}
-upstream {{ $value.Host }} {
+
+{{ range $domain, $container := . }}
+upstream {{ $domain }} {
+    {{ range $_, $value := $container }}
          server {{ $value.Address }}:{{ $value.Port }};
+    {{ end }}
 }
 server {
-        server_name {{ $value.Host }};
+        server_name {{ $domain }};
         listen 80;
         access_log /var/log/nginx/access.log vhost;
         location / {
-                proxy_pass http://{{ $value.Host }};
+                proxy_pass http://{{ $domain }};
         }
 }
 {{ end }}
