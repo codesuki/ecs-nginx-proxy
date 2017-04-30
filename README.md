@@ -22,7 +22,9 @@ This projects enables you to do that.
 * Wildcard domain like `*.domain.com`
 * ELB/ALB for this domain
 * ECS Cluster
-* EC2 instances in the cluster need a role including `ecs:Describe*` and `ecs:List*`
+
+### IAM Policy
+ * EC2 instances in the cluster need a role including `ecs:Describe*`, `ecs:List*` and `ec2:Describe*`
  * Easiest is to use `AmazonEC2ContainerServiceFullAccess` although that gives more permissions than needed
 
 ### Setup
