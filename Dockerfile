@@ -5,7 +5,7 @@ RUN sed -i 's/^http {/&\n    server_names_hash_bucket_size 128;/g' /etc/nginx/ng
 
 WORKDIR /root/
 
-RUN apt-get update && apt-get install -y -q --no-install-recommends curl unzip && apt-get clean
+RUN apt-get update && apt-get install -y -q --no-install-recommends curl unzip ca-certificates && apt-get clean
 
 # download release of ecs-gen
 ENV ECS_GEN_RELEASE 0.3.1
