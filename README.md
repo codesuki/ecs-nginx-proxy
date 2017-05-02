@@ -12,6 +12,7 @@ My use case is using a wildcard domain to make per branch test environments acce
 Currently I am only using this for a development cluster in a private network. I advise against using this in a production environment. If you want to do this consider using [ecs-gen](https://github.com/codesuki/ecs-gen) to create your own nginx config + container setup which is as secure as you need it to be.
 
 ## Sample use case
+![ecs-nginx-proxy](https://github.com/codesuki/ecs-nginx-proxy/raw/master/docs/ecs-nginx-proxy.png)
 You want to spin up development environments on AWS ECS for each pull request on your project.
 How do you make this easy to use? Do you look up the instance IP and connect directly? <br/>
 The easiest, at least for me, is to setup a wildcard DNS record and route to each deployed branch based on the subdomain, e.g. `*.domain.com`, `branch.domain.com`. <br/>
