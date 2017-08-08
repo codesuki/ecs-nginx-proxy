@@ -47,6 +47,13 @@ upstream {{ $name }} {
 }
 server {
         server_name {{ (index $container 0).Host }};
+{{ range $_, $value := $container -}}
+{{ range $key, $value := $value.Env -}}
+    {{ if (eq (index (split $key "_GEN_") 0) "NGINX") }}
+        {{ replace $key "NGINX_GEN_" "" 1 }} {{ $value }};
+    {{- end }}
+{{- end }}
+{{- end }}
         listen 80;
         access_log /var/log/nginx/access.log vhost;
         location / {
