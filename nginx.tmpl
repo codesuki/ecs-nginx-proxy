@@ -39,15 +39,14 @@ server {
         }
 }
 
-
-{{ range $domain, $container := . }}
-upstream {{ $domain }} {
+{{ range $name, $container := . }}
+upstream {{ $name }} {
     {{ range $_, $value := $container }}
          server {{ $value.Address }}:{{ $value.Port }};
     {{ end }}
 }
 server {
-        server_name {{ $domain }};
+        server_name {{ (index $container 0).Host }};
 {{ range $_, $value := $container -}}
 {{ range $key, $value := $value.Env -}}
     {{ if (eq (index (split $key "_GEN_") 0) "NGINX") }}
@@ -58,7 +57,8 @@ server {
         listen 80;
         access_log /var/log/nginx/access.log vhost;
         location / {
-                proxy_pass http://{{ $domain }};
+                proxy_pass http://{{ $name }};
         }
 }
 {{ end }}
+
