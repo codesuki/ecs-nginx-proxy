@@ -37,6 +37,8 @@ This projects enables you to do that.
 ### Adding containers
 Each container you want to make accessible needs to have its corresponding port mapped (can be random mapping) and the environment variable `VIRTUAL_HOST` set to the hostname it should respond to.
 
+You can customize nginx settings per container by adding environment variables prefixed by `NGINX_GEN_`. For examples, you could add an environment variable named `NGINX_GEN_client_max_body_size` to configure the nginx [client_max_body_size](http://nginx.org/en/docs/http/ngx_http_core_module.html#client_max_body_size) setting.
+
 ## Sample ECS task and service description
 For reference JSON descriptions for the ecs-nginx-proxy [task](./examples/task.json), [service](./examples/service.json) and a [sample task](./examples/sample_task.json) can be found in the `examples/` folder.
 Check out the commands below or just the sample descriptions if you already know how to work with AWS ECS.
